@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('data_emprestimo', models.DateTimeField(auto_now_add=True)),
                 ('data_prev_dev', models.DateTimeField(verbose_name='Previsao Devolucao')),
                 ('data_devolucao', models.DateTimeField(blank=True, null=True, verbose_name='Data Devolução')),
-                ('Cliente', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='biblioteca.cliente', verbose_name='Responsável')),
+                ('cliente', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='biblioteca.cliente', verbose_name='Responsável')),
                 ('livro', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='biblioteca.livro', verbose_name='Livro')),
             ],
         ),
