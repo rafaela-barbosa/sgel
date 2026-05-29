@@ -28,7 +28,7 @@ class Cliente(models.Model):
     
 
 class Emprestimo(models.Model):
-    livro = models.ForeignKey(Livro, on_delete=models.CASCADE, null=True, verbose_name="Livro")
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE, null=True, verbose_name="Livro") # se Livro for apagado, os registros de empréstimo do livro também serão apagados
     cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, null=True, verbose_name="Responsável")
     data_emprestimo = models.DateTimeField(auto_now_add=True)
     data_prev_dev = models.DateTimeField(verbose_name="Previsao Devolucao")
@@ -45,7 +45,6 @@ class Emprestimo(models.Model):
             
         else:
             self.livro.status = 'DISPONIVEL'
-          
-
+            
         self.livro.save()
         super().save(*args, **kwargs)
