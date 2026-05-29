@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -42,9 +43,13 @@ class Emprestimo(models.Model):
     def save(self, *args, **kwargs):
         if not self.data_devolucao:
             self.livro.status = 'EMPRESTADO'
-            
+            if self.livro.qtd_estoque > 0:
+                self.livro.qtd_estoque -= 1
+            else:
+                raise ValidationError("Livro sem estoque disponível para empréstimo.")
         else:
             self.livro.status = 'DISPONIVEL'
+            self.livro.qtd_estoque += 1
             
         self.livro.save()
         super().save(*args, **kwargs)
