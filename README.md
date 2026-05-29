@@ -17,28 +17,32 @@ O foco principal é a utilização do **Django Admin** como interface de gerenci
 
 ## 🚀 Como Executar
 
-Para rodar o projeto localmente, siga os passos abaixo:
+### Pré-requisitos
+- [Docker](https://www.docker.com/products/docker-desktop/) instalado e rodando
 
-### 1. Clone o repositório
-  ```bash
-  git clone https://github.com/seu-usuario/nome-do-projeto.git
+### Passo a passo
+
+1. Clone o repositório:
+```bash
+   git clone https://github.com/rafaela-barbosa/sgel.git
 ```
-2. **Crie e ative o ambiente virtual:**
-   ```bash
-   python -m venv venv
-   # No Windows:
-   .\venv\Scripts\activate
-   ```
-3. **Instale as dependências:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Configure as variáveis do ambiente:**
-   Crie um arquivo .env na raiz do projeto seguindo o modelo do .env.example
-5. **Rode as migrações do banco de dados:**
-   ```bash
-   python manage.py migrate
-6. **Inicie o servidor:**
-   ```bash
-   python manage.py runserver
-  Acesse o sistema em: http://127.0.0.1:8000/admin
+
+2. Crie o arquivo `.env` dentro da pasta `backend/` seguindo o modelo do `.env.example`
+
+3. Suba os containers:
+```bash
+   docker compose up --build
+```
+
+4. Em outro terminal, rode as migrações:
+```bash
+   docker compose exec web python manage.py migrate
+```
+
+5. (Opcional) Crie um superusuário para acessar o Django Admin:
+```bash
+   docker compose exec web python manage.py createsuperuser
+```
+
+Acesse o sistema em: http://localhost:8000
+Django Admin em: http://localhost:8000/admin
