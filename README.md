@@ -15,6 +15,15 @@ O foco principal é a utilização do **Django Admin** como interface de gerenci
 
 ---
 
+## ✨ Funcionalidades
+
+### Backend
+- CRUD completo de livros
+- Sistema de empréstimos com validação
+- Permissões role-based (Admin, User)
+- Autenticação por token JWT
+- Testes unitários
+
 ## 🚀 Como Executar
 
 ### Pré-requisitos
@@ -46,3 +55,16 @@ O foco principal é a utilização do **Django Admin** como interface de gerenci
 
 Acesse o sistema em: http://localhost:8000
 Django Admin em: http://localhost:8000/admin
+
+## 🚀 Roadmap
+
+- [x] Backend API
+- [ ] Frontend Vanilla JS
+- [ ] Frontend React
+- [ ] Swagger/OpenAPI documentation
+- [ ] Deploy em produção
+- [ ] Testes end-to-end
+
+## 📝 Como Contribuir
+
+Esse é um projeto de aprendizado. Feedbacks são bem-vindos!
